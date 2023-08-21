@@ -10,38 +10,40 @@ describe(('Test de  Login'), ()=> {
     })
 
 
-    it.skip('Test de Nueva Orden BQ Profum', ()=>{ 
+    it.skip('Test de Nueva Orden PLANTA MOVILES', ()=>{ 
 
         cy.mi_login_profum()
         cy.wait(1500)
 
-        //// NUEVA ORDEN DE TRABAJO BUQUE /////
+        //// NUEVA ORDEN DE TRABAJO PLANTA MOVILES/////
 
         
-        cy.get(elementos.otfug.btn_nueva_ot).click();
-
-        //Drop BQ   
-        cy.xpath(elementos.otfug.slc_bq).type('ABIGAIL{enter}');
+        cy.xpath("/html/body/app-layout-main/div/main/div/app-order-list/div[1]/div/div/div/div/div[2]/app-order-filter/form/div/div[1]/app-input-select/div/div/ng-select/div/div/div[3]/input").type('Fumigacion Plantas Moviles{enter}').click();
+        cy.wait(1200)
+        cy.get("body > app-layout-main > div > main > div > app-order-list > div:nth-child(1) > div > div > div > div > div.col-md-2 > button").click();
+        cy.xpath("/html/body/app-layout-main/div/main/div/app-new-order/div/div[2]/form/div[2]/div[1]/app-input-select/div/div/ng-select").type('Cintia{enter}');
+        cy.get("body > app-layout-main > div > main > div > app-new-order > div > div.card-body > form > div.pl-2.mr-4.mb-4.ng-star-inserted > button.btn.btn-primary.mr-2").click()
         
-        //Drop RA
-        cy.xpath(elementos.otfug.slc_ra).type('Cintia Arancibia{enter}');
-
-        //Drop Estado de servicio
-        cy.xpath(elementos.otfug.slc_estado_serv).type('Buques puerto Argentinos{enter}')
-        
-        //Boton guardar
-        cy.get(elementos.otfug.btn_guardar_ot).click()
-        cy.wait(1500)
-        
-        cy.mi_logout()
+        //cy.mi_logout()
     
     }) 
 
-    it('Test de Nueva Nominacion BQ Profum', ()=>{ 
+    it('Test de Nueva Servicio Planta Movil', ()=>{ 
 
         cy.mi_login_profum()
+
         
-        //// NUEVA ORDEN DE TRABAJO BUQUE /////
+        //// NUEVO SERVICIO PLANTA MOVIL /////
+        cy.xpath("/html/body/app-layout-main/div/main/div/app-order-list/div[1]/div/div/div/div/div[2]/app-order-filter/form/div/div[1]/app-input-select/div/div/ng-select/div/div/div[3]/input").type('Fumigacion Plantas Moviles{enter}').click();
+        cy.wait(1200)
+        cy.get("body > app-layout-main > div > main > div > app-order-list > div:nth-child(1) > div > div > div > div > div.col-md-2 > button").click();
+        cy.xpath("/html/body/app-layout-main/div/main/div/app-new-order/div/div[2]/form/div[2]/div[1]/app-input-select/div/div/ng-select").type('Cintia{enter}');
+        cy.get("body > app-layout-main > div > main > div > app-new-order > div > div.card-body > form > div.pl-2.mr-4.mb-4.ng-star-inserted > button.btn.btn-primary.mr-2").click()
+        
+
+        cy.xpath("/html/body/app-layout-main/div/main/div/app-new-order/div/div[2]/form/div[4]/div[1]/app-new-nomination-mobile-plant/div[2]/div[2]/form/div[1]/div[1]/app-input-date-without-time/div/div/input").type('21/8/2023{enter}');
+
+        
 
 
 
