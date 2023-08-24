@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-import elementos from '../selectores/misselectores'
+import elementos from '../../selectores/misselectores'
 
 describe(('Test de  Login'), ()=> {
 
